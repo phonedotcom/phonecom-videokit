@@ -1,0 +1,6 @@
+framework module PhoneComSDK {
+  umbrella header "PhoneComSDK.h"
+
+  export *
+  module * { export * }
+}
