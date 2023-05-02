@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
                     The push payload sent by a developer via APNS server API.
     @param          type
                     This is a PKPushType constant which is present in [registry desiredPushTypes].
-    @param          completion
+    @param          callDidCompleted
                     This completion handler should be called to signify the completion of payload processing.
 */
 - (void)didReceivedIncomingCallPayload:(PKPushPayload *)payload forType:(PKPushType)type withCompletionHandler:(void(^)(void))callDidCompleted;
