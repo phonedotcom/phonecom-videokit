@@ -1,0 +1,26 @@
+name: Add Tag
+
+on:
+  push:
+    branches:
+      - main
+    tags: "*.0.0"
+
+permissions:
+  contents: write
+
+jobs:
+  download-artifact:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Bump version and push tag
+        uses: anothrNick/github-tag-action@1.64.0 # Don't use @master or @v1 unless you're happy to test the latest version
+        env:
+          GITHUB_TOKEN: ${{ secrets.GIT_HUB_ACTION }} # if you don't want to set write permissions use a PAT token
+          WITH_V: false
+          INITIAL_VERSION: 0.0.0
+          DEFAULT_BUMP: major
